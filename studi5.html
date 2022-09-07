@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM example</title>
+    <style>
+      .highlight {
+        color: white;
+        background-color: black;
+        padding: 10px;
+        width: 250px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="bunga.jpg" alt="bunga sakura dari jepang">
+      <p>link nya <a href="https://id.pinterest.com/">pinterest</a></p>
+    </section>
+
+    <script>
+      const link = document.querySelector("a");
+      link.textContent = "pinterest";
+      link.href = "https://id.pinterest.com/";
+
+      const sect = document.querySelector('section');
+      const para = document.createElement('p');
+      para.textContent = "tekan aku";
+      sect.appendChild(para);
+
+      const text = document.createTextNode("tempat mencari gambar menarik");
+      const linkPara = document.querySelector('p');
+      linkPara.appendChild(text);
+
+    
+      sect.appendChild(linkPara);
+      linkPara.parentNode.removeChild(linkPara);
+
+      para.setAttribute('class', 'highlight');
+    </script>
+  </body>
+</html>
